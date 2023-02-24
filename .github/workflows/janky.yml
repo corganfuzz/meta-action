@@ -1,0 +1,18 @@
+name: Run Jenkins Job with Build Result
+on: [push] # Can be any Github event
+jobs:
+  build:
+    name: Display name on Github
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display step name on Github
+      uses: Gympass/jenkins-job-action@0.0.5
+      with:
+        jenkins_url: "{JENKINS_URL}"
+        jenkins_user: "{JENKINS_USER}"
+        jenkins_token: "${{ secrets.jenkins_token }}" # Consider declaring this as a Github secret, for security purposes.
+        job_name: "{JOB_NAME}"
+        #jenkins_params: '{"any_build_param_or_none": "value", "branch": "${GITHUB_SHA}"}' # Optional.
+        #console_log_regex: "KGVuY29kZWQpIChyZWdleCBydWxlKSAod2l0aCAzIHNlYXJjaCBncm91cHMp" # Optional. This is base64 encoded.
+        #console_log_regex_group: "2" # Optional.
+        #job_timeout: "150" # Optional.
