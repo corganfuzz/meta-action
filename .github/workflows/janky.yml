@@ -1,5 +1,6 @@
 name: Run Jenkins Job with Build Result
-on: [push] # Can be any Github event
+on:
+  workflow_dispatch:
 jobs:
   build:
     name: Display name on Github
